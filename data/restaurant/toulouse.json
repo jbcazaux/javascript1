@@ -1,0 +1,19 @@
+{
+    "id": "toulouse",
+    "name": "Pizzeria Super Mario Toulouse",
+    "title": "La meilleure pizzeria de la ville rose!",
+    "contact": {
+        "address": "8 rue de la princesse Peach, Toulouse",
+        "tel": "05 12 34 56 33",
+        "email":"lille@pizzeriasupermario.it"
+    },
+    "openings": [
+        {"am": "fermé", "pm": "fermé"},
+        {"am": "11:45 - 13:30", "pm": "19:00 - 23:00"},
+        {"am": "11:45 - 14:00", "pm": "19:00 - 23:00"},
+        {"am": "11:45 - 14:00", "pm": "19:00 - 23:00"},
+        {"am": "11:45 - 14:00", "pm": "19:30 - 02:00"},
+        {"am": "11:45 - 14:00", "pm": "19:30 - 02:00"},
+        {"am": "fermé", "pm": "fermé"}
+    ]
+}

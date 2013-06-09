@@ -1,0 +1,19 @@
+{
+    "id": "lille",
+    "name": "Pizzeria Super Mario Lille",
+    "title": "La meilleure pizzeria du nord!",
+    "contact": {
+        "address": "8 rue de la princesse Peach, 59000 Lille",
+        "tel": "02 12 34 56 22",
+        "email":"lille@pizzeriasupermario.it"
+    },
+    "openings": [
+        {"am": "fermé", "pm": "19:00 - 23:00"},
+        {"am": "11:45 - 13:30", "pm": "19:00 - 23:00"},
+        {"am": "11:45 - 14:00", "pm": "19:00 - 23:00"},
+        {"am": "11:45 - 14:00", "pm": "fermé"},
+        {"am": "11:45 - 14:00", "pm": "19:00 - 00:00"},
+        {"am": "11:45 - 14:00", "pm": "19:00 - 00:00"},
+        {"am": "fermé", "pm": "fermé"}
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "id": "parisxv",
+    "name": "Pizzeria Super Mario Paris XV",
+    "title": "La meilleure pizzeria du XVème !",
+    "contact": {
+        "address": "8 rue de la princesse Peach, 75015 Paris",
+        "tel": "01 12 34 56 11",
+        "email":"parisxv@pizzeriasupermario.it"
+    },
+    "openings": [
+        {"am": "fermé", "pm": "19:00 - 23:00"},
+        {"am": "11:45 - 14:00", "pm": "19:00 - 23:00"},
+        {"am": "11:45 - 14:00", "pm": "19:00 - 23:00"},
+        {"am": "11:45 - 14:00", "pm": "19:00 - 23:00"},
+        {"am": "11:45 - 14:00", "pm": "19:00 - 00:00"},
+        {"am": "11:45 - 14:00", "pm": "19:00 - 01:00"},
+        {"am": "fermé", "pm": "fermé"}
+    ]
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>QUnit basic example</title>
+    <link rel="stylesheet" href="qunit-1.11.0.css">
+</head>
+<body>
+<div id="qunit"></div>
+<div id="qunit-fixture">
+
+    <h1 class="title"></h1>
+
+    <div class="restaurant">
+        <h2 class="welcomemsg">
+        </h2>
+
+        <div class="infos bordered">
+            <div class="adresse"></div>
+            <div class="tel"></div>
+            <div class="email"></div>
+            <table class="horaires">
+                <tr>
+                    <td>Lundi</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Mardi</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Mercredi</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Jeudi</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Vendredi</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Samedi</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Dimanche</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+    <div class='equipe bordered'>
+        <ul>
+        </ul>
+    </div>
+
+
+</div>
+<script src="../js/jquery-2.0.2.js"></script>
+<script src="qunit-1.11.0.js"></script>
+<script src="../js/mario-utils.js"></script>
+<script src="../js/mario-restaurant.js"></script>
+
+<script>
+
+    test("init is visible", function () {
+        ok(mario.loadRestaurant);
+    });
+
+    asyncTest( "asynchronous test: restaurant infos", 25, function() {
+        mario.loadRestaurant('toulouse', function(){
+            equal($('.welcomemsg').html(), "La meilleure pizzeria de la ville rose!");
+            $('table tr td').each(function(){
+                ok($('table tr td').eq(1).html().length > 0);
+            });
+
+            $('.infos > div').each(function(){
+                ok($(this).html().length > 0);
+            })
+
+            start();
+        });
+
+
+    });
+
+
+
+</script>
+</body>
+</html>

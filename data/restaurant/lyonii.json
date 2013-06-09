@@ -1,0 +1,19 @@
+{
+    "id": "lyonii",
+    "name": "Pizzeria Super Mario Lyon II",
+    "title": "La plus grande pizza lyonaise !",
+    "contact": {
+        "address": "8 rue de la princesse Peach, Toulouse",
+        "tel": "05 12 34 56 33",
+        "email":"lyonii@pizzeriasupermario.it"
+    },
+    "openings": [
+        {"am": "fermé", "pm": "fermé"},
+        {"am": "11:30 - 13:30", "pm": "19:00 - 23:30"},
+        {"am": "11:30 - 14:00", "pm": "19:00 - 23:30"},
+        {"am": "11:30 - 14:00", "pm": "19:00 - 23:30"},
+        {"am": "11:30 - 14:00", "pm": "19:30 - 01:00"},
+        {"am": "11:30 - 14:00", "pm": "19:30 - 01:00"},
+        {"am": "fermé", "pm": "fermé"}
+    ]
+}

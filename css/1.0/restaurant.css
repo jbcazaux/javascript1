@@ -1,0 +1,71 @@
+ol, ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: grey;
+}
+
+h1,h2 {
+    margin: 20px 0 20px 5px;
+}
+
+h2 {
+    font-style: italic;
+}
+
+.bordered {
+    border: 1px solid black;
+    margin: 20px 0 20px 5px;
+}
+
+.infos {
+        padding: 10px 0 10px 0;
+}
+
+.infos div{
+    margin-left: 10px;
+}
+
+.infos .adresse{
+    font-weight: bold;
+}
+
+table.horaires {
+    margin: 10px 0 10px 10px;
+}
+
+table.horaires td {
+    padding: 3px 10px 3px 10px;
+}
+
+table.horaires tr:nth-child(even) {
+    background-color: red;
+}
+
+table.horaires tr:nth-child(odd) {
+    background-color: greenyellow;
+}
+
+.equipe {
+
+}
+
+.equipe ul {
+    padding: 0;
+}
+
+.equipe ul li {
+    margin: 5px 0 15px 10px;
+}
+
+.equipe .nom {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.equipe .message {
+    font-size: .9em;
+    font-style: italic;
+}
