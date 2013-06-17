@@ -34,6 +34,14 @@
         equal(mario.getURLParameter('a'), 'b');
         equal(mario.getURLParameter('c'), 'd');
     });
+
+    test( "foreach", 4, function() {
+        mario.foreach([0,1,2,3], function(i){
+            ok(parseInt(this) == i);
+        });
+    });
+
+
 </script>
 </body>
 </html>
