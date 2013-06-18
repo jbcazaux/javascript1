@@ -1,3 +1,7 @@
+//-------------------------
+//RETURN A FUNCTION
+//-------------------------
+
 function adder(a){
 
     function add(b){
@@ -16,6 +20,23 @@ var anonymFunction = function(){return "hello"};
 
 
 //-------------------------
+// FUNCTION AS PARAMETER
+//-------------------------
+
+function sayHi(){
+    console.log('hey there !');
+}
+
+function doIt(f){
+    f();
+};
+
+doIt(sayHi);
+
+
+
+//-------------------------
+// CALL BY NAME
 //-------------------------
 
 function doEveryThing(name){
