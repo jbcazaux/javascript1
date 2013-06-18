@@ -17,6 +17,4 @@
         $('.pizzerias ul').append(li);
     }
 
-
-
 })(jQuery, mario);
