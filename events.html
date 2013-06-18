@@ -16,18 +16,25 @@
         }
 
         function importNewUser(e){
+            //generate 10 new users
             for (var i = 0; i < 10; i++){
                 var r = parseInt(Math.random() * 100);
+
+                // td data
                 var tdData = $('<td></td>').html('user ' + r).on('click', function (e){
                     var data = $(this).html();
                     alert(data);
                 });
+
+                //td more
                 var tdMore = $('<td></td>').html("more infos").on('click', function (e){
                     var data = $(this).siblings().html();
                     alert(data);
                 });
+
+                //tr
                 var newTr = $('<tr></tr>').append(tdData).append(tdMore);
-                $('table').append(newTr);
+                $('table').prepend(newTr);
                 $('.total').html($('table tr').size());
             }
         }
@@ -37,14 +44,13 @@
     </script>
 </head>
 <body>
-<a href="#" class="more">Plus d'utilisateurs</a><span class='total'> </span>
+<a href="#" class="more">Plus d'utilisateurs</a> (<span class='total'> </span>)
         <table border="1" style="width:100%">
             <tr>
                 <td>user 1</td>
                 <td class='more'>more infos</td>
             </tr>
         </table>
-
 </body>
 
 </html>
