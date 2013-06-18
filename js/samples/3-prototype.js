@@ -22,7 +22,7 @@ console.log("compute 2: " + u1.computeSomething(2));
 //------------------------
 //------------------------
 
-
+console.log("--------------------------------");
 var WeirdUser = function(login){
     this.login = login;
 
@@ -36,3 +36,13 @@ WeirdUser.prototype.computeSomething = function(p){
 };
 var u2 = new WeirdUser("tata");
 console.log("compute weird: " + u2.computeSomething(2));
+
+
+
+//--------------------------------
+//--------------------------------
+console.log("--------------------------------");
+Object.prototype.return777 = function(){return 777};
+console.log("u2.return777: " + u2.return777());
+console.log("u2.hasOwnProperty('return777'): " + u2.hasOwnProperty("return777"));
+console.log("u2.hasOwnProperty('computeSomething'): " + u2.hasOwnProperty("computeSomething"));
