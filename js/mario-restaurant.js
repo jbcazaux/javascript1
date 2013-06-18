@@ -3,6 +3,7 @@
     $(function(){
         var restaurantid = mario.getURLParameter('r');
         $.get('/mario/data/restaurant/' + restaurantid + '.json', displayRestaurant);
+        $.get('/mario/data/restaurant/' + restaurantid + '/team.json', loadTeam).always(callback);
     });
 
     function displayRestaurant(data){
@@ -19,7 +20,19 @@
         });
     }
 
+    function loadTeam(teamates){
+        $.each(teamates, function(){
+            $.get('/mario/data/employee/' + this + '.json', displayEmployee);
+        });
+    }
 
+    function displayEmployee(employee){
+        var name = $('<div></div>').text(employee.name);
+        var msg = $('<div></div>').text(employee.infos);
+
+        var li = $('<li></li>').append(name).append(msg);
+        $('.equipe ul').append(li);
+    }
 
 
 
