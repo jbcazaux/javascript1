@@ -77,12 +77,12 @@
     mario.restId = 'toulouse';
 
     asyncTest( "asynchronous test: restaurant infos", function() {
-        setTimeout(assertAllInfosAreDisplayed, 200);
+        setTimeout(assertRestaurantInfosAreDisplayed, 100);
     });
 
 
-    function assertAllInfosAreDisplayed(){
-        expect(25);
+    function assertRestaurantInfosAreDisplayed(){
+        expect(29);
 
         equal($('.welcomemsg').html(), "La meilleure pizzeria de la ville rose!");
         $('table tr td').each(function(){
@@ -91,7 +91,13 @@
 
         $('.infos > div').each(function(){
             ok($(this).html().length > 0);
-        })
+        });
+
+        $('.equipe ul li').each(function(){
+            ok($('div', this).length > 0);
+        });
+
+
 
         start();
     }
