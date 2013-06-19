@@ -23,13 +23,14 @@ var anonymFunction = function(){return "hello"};
 // FUNCTION AS PARAMETER
 //-------------------------
 
+function doIt(f){
+    f();
+};
+
 function sayHi(){
     console.log('hey there !');
 }
 
-function doIt(f){
-    f();
-};
 
 doIt(sayHi);
 
@@ -40,9 +41,11 @@ doIt(sayHi);
 //-------------------------
 
 function doEveryThing(name){
+
     if (arguments.length === 0){
         return "hello world"
     }
+
     if (arguments.length === 1 && isNaN(arguments[0]) ){
             return "hello " + arguments[0];
     }
@@ -54,4 +57,7 @@ function doEveryThing(name){
     return sum;
 }
 
+console.log(doEveryThing());
+console.log(doEveryThing("toto"));
+console.log(doEveryThing(4));
 console.log(doEveryThing(1,2,3));
