@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>QUnit basic example</title>
+    <title>Test all restaurant</title>
     <link rel="stylesheet" href="qunit-1.11.0.css">
 </head>
 <body>
@@ -11,7 +11,6 @@
 
     <div class="pizzerias">
         <ul>
-
         </ul>
     </div>
 
@@ -23,17 +22,19 @@
 
 <script>
 
-    asyncTest( "asynchronous test: all restaurants", 5, function() {
-        //mario.initAllRestaurants(function(data){
-            equal($('ul li').size(),  4);
-            $('ul li').each(function(){
-                equal($(this).children('a').size(),  1);
-            })
-            start();
-        //});
+    asyncTest( "asynchronous test: all restaurants", function() {
+        setTimeout(assertAllRestaurantsAreLoaded, 100);
     });
 
+    function assertAllRestaurantsAreLoaded(){
+        expect(5);
 
+        equal($('ul li').size(),  4);
+        $('ul li').each(function(){
+            equal($(this).children('a').size(),  1);
+        })
+        start();
+    }
 
 </script>
 </body>

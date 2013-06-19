@@ -1,15 +1,10 @@
 (function($, mario){
 
     $(function(){
-        init();
-    });
-
-    function init(restId, callback){
-        var restaurantid = restId || mario.getURLParameter('r');
+        var restaurantid = mario.restId || mario.getURLParameter('r');
         $.get('/mario/data/restaurant/' + restaurantid + '.json', displayRestaurant);
-        $.get('/mario/data/restaurant/' + restaurantid + '/team.json', loadTeam).always(callback);
-    }
-    mario.loadRestaurant = init;
+        $.get('/mario/data/restaurant/' + restaurantid + '/team.json', loadTeam);
+    });
 
     function displayRestaurant(data){
         $('.title').text(data.name);

@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>QUnit basic example</title>
+    <title>test mario restaurant</title>
     <link rel="stylesheet" href="qunit-1.11.0.css">
 </head>
 <body>
@@ -74,27 +74,27 @@
 
 <script>
 
-    test("init is visible", function () {
-        ok(mario.loadRestaurant);
+    mario.restId = 'toulouse';
+
+    asyncTest( "asynchronous test: restaurant infos", function() {
+        setTimeout(assertAllInfosAreDisplayed, 200);
     });
 
-    asyncTest( "asynchronous test: restaurant infos", 25, function() {
-        mario.loadRestaurant('toulouse', function(){
-            equal($('.welcomemsg').html(), "La meilleure pizzeria de la ville rose!");
-            $('table tr td').each(function(){
-                ok($('table tr td').eq(1).html().length > 0);
-            });
 
-            $('.infos > div').each(function(){
-                ok($(this).html().length > 0);
-            })
+    function assertAllInfosAreDisplayed(){
+        expect(25);
 
-            start();
+        equal($('.welcomemsg').html(), "La meilleure pizzeria de la ville rose!");
+        $('table tr td').each(function(){
+            ok($('table tr td').eq(1).html().length > 0);
         });
 
+        $('.infos > div').each(function(){
+            ok($(this).html().length > 0);
+        })
 
-    });
-
+        start();
+    }
 
 
 </script>
