@@ -1,17 +1,14 @@
+//same example but computeSomething is declared in the prototype
 var User = function(login){
     this.login = login;
     this.coeff = 3.2;
-
-    this.getPrivateCoeff = function(){
-        return privateCoeff;
-    };
 };
 
 User.prototype.computeSomething = function(p){
     return p * this.coeff;
 };
 
-var u1 = new User("toto", "toto1");
+var u1 = new User("toto1");
 console.log("coeff: " + u1.coeff);
 console.log("compute 2: " + u1.computeSomething(2));
 u1.coeff = 0;
@@ -20,6 +17,7 @@ console.log("compute 2: " + u1.computeSomething(2));
 
 
 //------------------------
+//ORDER OF RESOLUTION
 //------------------------
 
 console.log("--------------------------------");
@@ -40,6 +38,7 @@ console.log("compute weird: " + u2.computeSomething(2));
 
 
 //--------------------------------
+//MODIFY PROTOTYPE AFTER INSTANCIATION
 //--------------------------------
 console.log("--------------------------------");
 Object.prototype.return777 = function(){return 777};
