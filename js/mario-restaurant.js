@@ -1,10 +1,27 @@
 (function($, mario){
 
+
+
     $(function(){
-        var restaurantid = mario.restId || mario.getURLParameter('r');
-        $.get('/mario/data/restaurant/' + restaurantid + '.json', displayRestaurant);
-        $.get('/mario/data/restaurant/' + restaurantid + '/team.json', loadTeam);
+          init();
     });
+
+    function init(){
+        console.log('init mario');
+        var restaurantid = mario.restId || mario.getURLParameter('r');
+        $.get('/mario/data/restaurant/' + restaurantid + '.json', displayRestaurant).done(
+            function(){
+                $.get('/mario/data/restaurant/' + restaurantid + '/team.json', loadTeam);
+            }
+        ).fail(
+            function(){
+                $('.title').text("impossible de trouver ce restaurant");
+                $('.infos').hide();
+                $('.equipe').hide();
+            }
+        );
+    }
+    mario.initRestaurant = init;
 
     function displayRestaurant(data){
         $('.title').text(data.name);
@@ -33,7 +50,5 @@
         var li = $('<li></li>').append(name).append(msg);
         $('.equipe ul').append(li);
     }
-
-
 
 })(jQuery, mario);

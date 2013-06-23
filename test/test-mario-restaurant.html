@@ -77,13 +77,14 @@
     mario.restId = 'toulouse';
 
     asyncTest( "asynchronous test: restaurant infos", function() {
+        expect(29);
+
         setTimeout(assertRestaurantInfosAreDisplayed, 100);
     });
 
 
     function assertRestaurantInfosAreDisplayed(){
-        expect(29);
-
+        console.log('test 1');
         equal($('.welcomemsg').html(), "La meilleure pizzeria de la ville rose!");
         $('table tr td').each(function(){
             ok($('table tr td').eq(1).html().length > 0);
@@ -97,7 +98,20 @@
             ok($('div', this).length > 0);
         });
 
+        start();
+    }
 
+    asyncTest( "asynchronous test: restaurant bad id", function() {
+        console.log('test 2');
+        mario.restId = 'badid';
+        expect(1);
+        mario.initRestaurant();
+        setTimeout(assertMsgErrorOnRestaurantNotFound, 100);
+
+    });
+
+    function assertMsgErrorOnRestaurantNotFound(){
+        equal($('.title').html(), "impossible de trouver ce restaurant");
 
         start();
     }
