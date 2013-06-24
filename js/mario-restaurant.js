@@ -1,7 +1,5 @@
 (function($, mario){
 
-
-
     $(function(){
           init();
     });
@@ -9,11 +7,15 @@
     function init(){
         console.log('init mario');
         var restaurantid = mario.restId || mario.getURLParameter('r');
-        $.get('/mario/data/restaurant/' + restaurantid + '.json', displayRestaurant).done(
-            function(){
-                $.get('/mario/data/restaurant/' + restaurantid + '/team.json', loadTeam);
+        $.when($.get('/mario/data/restaurant/' + restaurantid + '.json'),
+                $.get('/mario/data/restaurant/' + restaurantid + '/team.json'))
+        .done(
+            function(result1, result2){
+                displayRestaurant(result1[0]);
+                loadTeam(result2[0]);
             }
-        ).fail(
+        )
+        .fail(
             function(){
                 $('.title').text("impossible de trouver ce restaurant");
                 $('.infos').hide();
