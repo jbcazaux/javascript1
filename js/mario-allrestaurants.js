@@ -9,7 +9,7 @@
 
     function displayRestaurant(i, restaurant){
         var link = mario.createLink('restaurant.html?r=' + restaurant.id, restaurant.name);
-        var li = $('<li></li>').html(link);
+        var li = $('<li></li>').append(link);
         $('.pizzerias ul').append(li);
     }
 
