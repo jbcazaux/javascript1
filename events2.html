@@ -7,18 +7,12 @@
 
     $(function(){
 
-       $('table td.more').on('click', displayInfos);
-       $('a.more').on('click', importNewUser);
+        $('a.more').on('click', importNewUser);
         $('table').on('click', 'tr', function(e){
             var data = $(this);
             alert(data.children('td').first().html());
-
         });
 
-        function displayInfos(e){
-            var data = $(this).siblings().html();
-            alert(data);
-        }
 
         function importNewUser(e){
             for (var i = 0; i < 10; i++){
