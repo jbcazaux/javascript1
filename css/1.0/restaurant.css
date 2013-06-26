@@ -32,40 +32,36 @@ h2 {
     font-weight: bold;
 }
 
-table.horaires {
+table.openings{
     margin: 10px 0 10px 10px;
 }
 
-table.horaires td {
+table.openings td {
     padding: 3px 10px 3px 10px;
 }
 
-table.horaires tr:nth-child(even) {
+table.openings tr:nth-child(even) {
     background-color: red;
 }
 
-table.horaires tr:nth-child(odd) {
+table.openings tr:nth-child(odd) {
     background-color: greenyellow;
 }
 
-.equipe {
-
-}
-
-.equipe ul {
+.team ul {
     padding: 0;
 }
 
-.equipe ul li {
+.team ul li {
     margin: 5px 0 15px 10px;
 }
 
-.equipe .nom {
+.team .nom {
     font-size: 1.5em;
     font-weight: bold;
 }
 
-.equipe .message {
+.team .message {
     font-size: .9em;
     font-style: italic;
 }

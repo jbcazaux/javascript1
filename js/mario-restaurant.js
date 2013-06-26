@@ -9,12 +9,12 @@
     function displayRestaurant(data){
         $('.title').text(data.name);
         $('.welcomemsg').text(data.title);
-        $('.infos .adresse').text(data.contact.address);
+        $('.infos .address').text(data.contact.address);
         $('.infos .tel').text(data.contact.tel);
         $('.infos .email').text(data.contact.email);
 
         $.each(data.openings, function(i, opening){
-            var tr = $('.infos .horaires tr').eq(i);
+            var tr = $('.infos .openings tr').eq(i);
             $('td', tr).eq(1).text(opening.am);
             $('td', tr).eq(2).text(opening.pm);
         });
@@ -31,7 +31,7 @@
         var msg = $('<div></div>').text(employee.infos);
 
         var li = $('<li></li>').append(name).append(msg);
-        $('.equipe ul').append(li);
+        $('.team ul').append(li);
     }
 
 
