@@ -3,7 +3,7 @@
     $(function(){
         var restaurantid = mario.getURLParameter('r');
         $.get('/mario/data/restaurant/' + restaurantid + '.json', displayRestaurant);
-        $.get('/mario/data/restaurant/' + restaurantid + '/team.json', loadTeam).always(callback);
+        $.get('/mario/data/restaurant/' + restaurantid + '/team.json', loadTeam);
     });
 
     function displayRestaurant(data){
