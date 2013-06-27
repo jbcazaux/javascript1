@@ -84,7 +84,6 @@
 
 
     function assertRestaurantInfosAreDisplayed(){
-        console.log('test 1');
         equal($('.welcomemsg').html(), "La meilleure pizzeria de la ville rose!");
         $('table tr td').each(function(){
             ok($('table tr td').eq(1).html().length > 0);
