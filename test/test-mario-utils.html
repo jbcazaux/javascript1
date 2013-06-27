@@ -12,6 +12,8 @@
 <script src="qunit-1.11.0.js"></script>
 <script src="../js/mario-utils.js"></script>
 
+
+
 <script>
 
     test("createEmailLink", function () {
@@ -35,9 +37,10 @@
         equal(mario.getURLParameter('c'), 'd');
     });
 
-    test( "foreach", 4, function() {
-        mario.foreach([0,1,2,3], function(i){
+    test( "foreach", 8, function() {
+        mario.foreach([0,1,2,3], function(i, v){
             ok(parseInt(this) == i);
+            equal(this, v);
         });
     });
 
