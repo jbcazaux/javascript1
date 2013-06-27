@@ -1,7 +1,8 @@
 (function($, mario){
+    "use strict"
 
     $(function(){
-        $.get('/mario/data/restaurants.json', function(data){
+        $.get('/mario/data/restaurants.json').done(function(data){
             $.each(data, displayRestaurant);
         });
     });
