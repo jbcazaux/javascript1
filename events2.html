@@ -13,15 +13,18 @@
             alert(data.children('td').first().html());
         });
 
-
         function importNewUser(e){
+            var trs = new Array();
             for (var i = 0; i < 10; i++){
                 var r = parseInt(Math.random() * 100);
                 var tdData = $('<td></td>').html('user ' + r)   ;
                 var tdMore = $('<td></td>').html("more infos");
                 var newTr = $('<tr></tr>').append(tdData).append(tdMore);
-                $('table').append(newTr);
+                trs.push(newTr[0].outerHTML);
             }
+
+            $('table').append(trs.join(''));
+
             $('.total').html($('table tr').size());
         }
     });
