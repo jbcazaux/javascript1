@@ -5,7 +5,6 @@
     });
 
     function init(){
-        console.log('init mario');
         var restaurantid = mario.restId || mario.getURLParameter('r');
         $.when($.get('/mario/data/restaurant/' + restaurantid + '.json'),
                 $.get('/mario/data/restaurant/' + restaurantid + '/team.json'))
