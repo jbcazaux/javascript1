@@ -1,0 +1,35 @@
+
+                <script src="../jquery-2.0.2.js"></script>
+                <script>
+                    function takePicture() {
+                        var dfd = new $.Deferred();
+
+                        navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+                            destinationType: Camera.DestinationType.DATA_URL
+                        });
+
+                        function onSuccess(imageData) {
+                            var image = document.getElementById('myImage');
+                            image.src = "data:image/jpeg;base64," + imageData;
+                            dfd.resolve(image);
+                        }
+
+                        function onFail(message) {
+                            dfd.reject(message);
+                        }
+                        // Return the Promise so caller can't change the Deferred
+                        return dfd.promise();
+                    }
+
+                    takePicture()
+                            .done(displayImage)
+                            .fail(displayError);
+
+                    function displayImage(image){
+                        //....
+                    }
+
+                    function displayError(message){
+                        //....
+                    }
+                </script>

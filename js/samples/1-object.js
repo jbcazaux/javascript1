@@ -7,8 +7,8 @@ var user1 = {
     stylo : styloRouge
 };
 
-
 var petInJson = {"name": "merlin", "age": 3, "food": [
     {"desc": "boite miaou", "price" : 12.30},
     {"desc": "croquettes miaou", "price" : 19.46}
 ]};
+

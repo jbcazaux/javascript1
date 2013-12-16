@@ -4,11 +4,13 @@ var User = function(login){
     this.coeff = 3.2;
 };
 
+var u1 = new User("toto1");
+
+
 User.prototype.computeSomething = function(p){
     return p * this.coeff;
 };
 
-var u1 = new User("toto1");
 console.log("coeff: " + u1.coeff);
 console.log("compute 2: " + u1.computeSomething(2));
 u1.coeff = 0;

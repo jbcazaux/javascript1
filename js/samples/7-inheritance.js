@@ -2,14 +2,13 @@
 // PROTOTYPE
 //-------------------
 
-
 var User = function(name){
     this.name = name;
-    this.echo = function(e){return e}
+//    this.echo = function(e){return e};
 }
 //better to do:
-User.prototype.echo = function(e){return e}
 User.prototype.hello = function(name){return "hello " + name};
+User.prototype.echo= function(e){return e};
 
 var simpleUser = new User('simple');
 console.log("simple hello: " + simpleUser.hello('simple'));
@@ -17,14 +16,15 @@ console.log("simple hello: " + simpleUser.hello('simple'));
 
 //SUPER USER
 var SuperUser = function(age){
-    this.age = age
+    this.age = age;
+    this.ftest = function(){return "test"};
 };
+
 SuperUser.prototype = new User();
 //override
 SuperUser.prototype.hello = function(){return "super hello"};
 
 var superUtilisateur = new SuperUser(12);
-//jb.hello = function(msg){return "super hello " + msg};
 console.log(superUtilisateur.echo("coucou"));
 console.log(superUtilisateur.hello("me"));
 

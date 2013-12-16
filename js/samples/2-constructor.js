@@ -1,4 +1,4 @@
-var User = function(name, login){
+function User(name, login){
     this.name = name;
     this.login = login;
     this.coeff = 3.2;
@@ -19,3 +19,9 @@ var u1 = new User("toto", "toto1");
 console.log("coeff: " + u1.coeff);
 console.log("private coeff: " + u1.privateCoeff);
 console.log("get private coeff: " + u1.getPrivateCoeff());
+
+
+u1.hello = function(name){
+    return "hello "  + name;
+}
+u1.hello("jb");
