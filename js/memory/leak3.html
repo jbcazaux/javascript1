@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+
+</head>
+
+<body>
+<div id="infos">infos</div>
+<button id="create">create</button>
+<button id="clean">clean</button>
+
+
+<script lang="javascript">
+    var arr = [];
+    var t;
+    function User(){
+        this.name = new Array(100000).join('*');
+    }
+
+    function createUsers(){
+        arr.push(new User());
+    }
+
+    document.getElementById('create').onclick = function(){
+        if (!t){
+            t = setInterval(createUsers, 1000);
+            console.log("start interval");
+            document.getElementById('infos').innerHTML = "started";
+        }else{
+            clearInterval(t);
+            console.log("stop interval");
+            document.getElementById('infos').innerHTML = "stopped";
+        }
+    };
+
+    document.getElementById('clean').onclick = function(){
+            if (t) {
+                clearInterval(t);
+                console.log("stop interval");
+                document.getElementById('infos').innerHTML = "stopped";
+            }
+            document.getElementById('infos').innerHTML = arr.length;
+            arr.length = 0;
+    };
+
+
+
+</script>
+</body>
+</html>

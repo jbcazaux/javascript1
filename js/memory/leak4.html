@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+
+</head>
+
+<body>
+<div id="infos">infos</div>
+<button id="create">create</button>
+<button id="clean">clean</button>
+<div id="more">infos</div>
+
+<script lang="javascript">
+    var myApp = {};
+    var t;
+    function User(){
+        this.name = new Array(100000).join('*');
+    }
+
+    function createUsers(){
+        myApp[new Date().getTime()] = new User();
+    }
+
+    document.getElementById('create').onclick = function(){
+        if (!t){
+            t = setInterval(createUsers, 1000);
+            console.log("start interval");
+            document.getElementById('infos').innerHTML = "started";
+        }else{
+            clearInterval(t);
+            console.log("stop interval");
+            document.getElementById('infos').innerHTML = "stopped";
+        }
+    };
+
+    document.getElementById('clean').onclick = function(){
+            if (t) {
+                clearInterval(t);
+                console.log("stop interval");
+                document.getElementById('infos').innerHTML = "stopped";
+            }
+            var more = document.getElementById('more');
+            for (var i in myApp){
+                more.innerHTML =  more.innerHTML + '<br>' + i;
+            }
+            for (var i in myApp){
+                //delete myApp[i];
+                myApp[i] = null;
+            }
+        document.getElementById('infos').innerHTML = 'clean';
+    };
+
+
+
+</script>
+</body>
+</html>
