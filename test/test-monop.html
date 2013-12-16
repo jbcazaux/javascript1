@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>QUnit Monopoly</title>
+    <link rel="stylesheet" href="qunit-1.11.0.css">
+</head>
+<body>
+<div id="qunit"></div>
+<div id="qunit-fixture"></div>
+<script src="../js/jquery-2.0.2.js"></script>
+<script src="qunit-1.11.0.js"></script>
+<script src="../js/monopoly/Cup.js"></script>
+<script src="../js/monopoly/Box.js"></script>
+<script src="../js/monopoly/Monopoly.js"></script>
+
+
+<script>
+    test("throw dice", function () {
+        var dice = new Dice();
+        var tab = new Array();
+        for (var i  = 1; i < 1000 ; i++){
+            dice.throws();
+            tab[dice.value] = 1;
+            ok(dice.value >= 1);
+            ok(dice.value <= 6);
+        }
+        equal(tab[1], 1);
+        equal(tab[2], 1);
+        equal(tab[3], 1);
+        equal(tab[4], 1);
+        equal(tab[5], 1);
+        equal(tab[6], 1);
+    });
+
+    test("throw dices", function () {
+        var cup = new Cup();
+        for (var i  = 1; i < 1000 ; i++){
+            ok(cup.throws() >= 2);
+            ok(cup.throws() <= 12);
+        }
+    });
+
+    test("throw doubles", function () {
+        var cup = new Cup();
+        cup.dice1 = 2;
+        cup.dice2 = 2;
+        ok(cup.isDouble());
+        cup.dice1 = 2;
+        cup.dice2 = 3;
+        ok(!cup.isDouble());
+    });
+
+    test("Monopoly has 40 boxes", function () {
+        var monopoly = new Monopoly();
+        equal(monopoly.board.length, 40);
+    });
+
+    test("Monopoly first box is a start", function () {
+        var monopoly = new Monopoly();
+        equal(monopoly.board[0].name, "Départ");
+    });
+
+    test("Monopoly board is looping", function () {
+        var monopoly = new Monopoly();
+        equal(monopoly.board[monopoly.board.length -1].next.name, "Départ");
+    });
+
+    test("Monopoly box 23 is a property", function () {
+        var monopoly = new Monopoly();
+        equal(monopoly.board[23].name, "Case23");
+        equal(monopoly.board[23].price, 69);
+        equal(monopoly.board[23].rent, 23);
+    });
+
+    test("Monopoly box 22 is NOT a property", function () {
+        var monopoly = new Monopoly();
+        equal(monopoly.board[22].name, "Case22");
+        equal(monopoly.board[22].price, undefined);
+        equal(monopoly.board[22].rent, undefined);
+    });
+
+    test("Monopoly boxes 1,11,21,31 are properties", function () {
+        var monopoly = new Monopoly();
+        equal(monopoly.board[1].name, "Case1");
+        equal(monopoly.board[1].price, 3);
+        equal(monopoly.board[1].rent, 1);
+
+        equal(monopoly.board[11].name, "Case11");
+        equal(monopoly.board[11].price, 33);
+        equal(monopoly.board[11].rent, 11);
+
+        equal(monopoly.board[21].name, "Case21");
+        equal(monopoly.board[21].price, 63);
+        equal(monopoly.board[21].rent, 21);
+
+        equal(monopoly.board[31].name, "Case31");
+        equal(monopoly.board[31].price, 93);
+        equal(monopoly.board[31].rent, 31);
+    });
+
+    test("Players earns 100€ on start box", function(){
+        var start = new Start();
+        var player = {money : 100};
+        start.on(player);
+        equal(player.money, 200);
+    });
+
+    test("Player can buy a property", function(){
+        var property = new Property("caseX", 100, 10);
+        var player = {id: "jb", money : 100};
+        property.on(player);
+        equal(player.money, 0);
+        equal(property.owner.id, "jb");
+    });
+
+    test("Player can not buy a property", function(){
+        var property = new Property("caseX", 1000, 10);
+        var player = {id: "jb", money : 100};
+        property.on(player);
+        equal(player.money, 100);
+        equal(property.owner, null);
+    });
+
+    test("Player must pay his rent", function(){
+        var property = new Property("caseX", 1000, 10);
+
+        property.owner = {id: "toto"}
+        var player = {id: "jb", money : 100};
+        property.on(player);
+        equal(player.money, 90);
+        equal(property.owner.id, "toto");
+    });
+
+
+</script>
+</body>
+</html>
